@@ -1,7 +1,0 @@
-flask
-bs4
-numpy
-sklearn
-requests
-pandas
-gunicorn
