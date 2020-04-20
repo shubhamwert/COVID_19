@@ -1,4 +1,4 @@
-python
+
 flask
 flask_cors
 numpy
