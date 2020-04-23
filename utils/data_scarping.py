@@ -23,6 +23,7 @@ def updateData():
     data=[]
 
     data.append(Headers)
+    print('Final processings.',end=".")
 
     for i in range(1,len(rows)):
         row_data=[]
@@ -31,6 +32,7 @@ def updateData():
             for p in row_data_raw:
                 row_data.append(p.text)
             data.append(row_data)
+        print('.',end=".")
 
     #AUTOMATE THIS
     data[-3][1]=data[-3][1][0:-1]
@@ -39,8 +41,8 @@ def updateData():
 
     df=pd.DataFrame(data[1:-3],columns=Headers)
 
-    df.to_csv('state_wise_corona_cases.csv')
-    df.to_json('data.json',orient='records')
+    df.to_csv('../data/state_wise_corona_cases.csv')
+    df.to_json('../data/data.json',orient='records')
 
 def WorldDataUpdate():
     page=req.get('https://www.worldometers.info/coronavirus/')
@@ -58,6 +60,7 @@ def WorldDataUpdate():
     data=[]
 
     data.append(Headers)
+    print('Final processings.',end=".")
 
     for i in range(1,len(rows)):
         row_data=[]
@@ -66,7 +69,7 @@ def WorldDataUpdate():
             for p in row_data_raw:
                 row_data.append(p.text)
             data.append(row_data)
-
+        print('.',end='.')
     a=pd.DataFrame(data=data)
     a.info()
     a.duplicated()
